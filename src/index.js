@@ -1,17 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './tailwind.output.css';
+import Header from './Components/Header';
+import Navbar from './Components/Navbar';
+import Post from './Components/Post';
+import User from './Components/User';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const App = () => (
+  <div className="bg-white">
+    <Header />
+    <div className="main max-w-lg mx-auto px-6 pb-8" >
+      <div className="entries mt-8 mb-16">
+        <Post image="./images/funny-cat-01.png" likes="45" date="24.11.2020" caption="Cat ipsum dolor sit amet, chew the plant. Check cat door for ambush 10 times before coming in sniff other cat's butt and hang jaw half open thereafter.">
+          <User image="./images/crazy03.png" name="Ricky Ticky Tabby" />
+        </Post>
+        <Post image="./images/funny-cat-02.png" likes="128" date="24.11.2020" caption="Steal raw zucchini off kitchen counter my left donut is missing, as is my right so meowwww. Meow. You have cat to be kitten me right meow. Chase ball of string cat playing a fiddle in hey diddle diddle?">
+          <User image="./images/crazy02.png" name="Cindy Clawford" />
+        </Post>
+        <Post image="./images/funny-cat-03.png" likes="256" date="24.11.2020">
+          <User image="./images/crazy01.png" name="I_Love_My_Kitty" />
+        </Post>
+      </div>
+    </div>
+    <Navbar />
+  </div>
+
+
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.querySelector('#root'));

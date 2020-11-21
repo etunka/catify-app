@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.flex-centered {
+    @apply flex items-center justify-between;
+}
+
+.icon {
+    @apply w-6 h-6;
+}
+
+.icon-small {
+    @apply w-5 h-5;
+}
+
