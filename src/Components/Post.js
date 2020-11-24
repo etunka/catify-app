@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { ReactComponent as PawIcon } from "./paw.svg";
-import { ReactComponent as RedPawIcon } from "./paw--red.svg";
+import { ReactComponent as LikeIcon } from "./paw.svg";
+import { ReactComponent as LikeIconChecked } from "./paw--red.svg";
 
 export default function Post({ image, caption = "", date, likes, children }) {
+  // caption/read-more functionality
   const isAboveCharLimit = caption.length > 100;
   const excerpt = caption.substring(0, 100);
-
   const [showExcerpt, setShowExcerpt] = useState(isAboveCharLimit);
+
+  // like button
+  const [reaction, setReaction] = useState("like");
 
   return (
     <div className="post mb-8 bg-yellow p-4 shadow">
@@ -24,8 +27,16 @@ export default function Post({ image, caption = "", date, likes, children }) {
             </g>
           </g>
         </svg>
-        <PawIcon className="icon-small my-4 fill-black" />
-        {/* <RedPawIcon className="icon-small my-4 fill-red" /> */}
+        <button
+          className="focus:outline-none"
+          onClick={() => setReaction(reaction === "like" ? "liked" : "like")}
+        >
+          {reaction === "like" ? (
+            <LikeIcon className="icon-small my-4" />
+          ) : (
+            <LikeIconChecked className="icon-small my-4" />
+          )}
+        </button>
       </div>
       <p className="post__caption mt-2 text-sm text-black">
         {showExcerpt ? excerpt : caption}
