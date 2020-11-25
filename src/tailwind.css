@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .flex-centered {
-    @apply flex items-center justify-between;
+  @apply flex items-center justify-between;
 }
 
 .icon {
-    @apply w-6 h-6;
+  @apply w-6 h-6;
 }
 
 .icon-small {
-    @apply w-5 h-5;
+  @apply w-5 h-5;
 }
-
