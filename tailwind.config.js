@@ -23,6 +23,9 @@ module.exports = {
         white: "#FBFAF5",
         black: "#404040",
       },
+      fontSize: {
+        xxs: "0.625rem",
+      },
     },
   },
   variants: {
