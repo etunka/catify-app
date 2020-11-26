@@ -9,8 +9,8 @@ import User from "./components/User";
 const App = () => (
   <div className="bg-white">
     <Header />
-    <div className="main max-w-lg mx-auto px-6 pb-8">
-      <div className="entries mt-8 mb-16">
+    <div className="main max-w-lg mx-auto pb-8 bg-yellow">
+      <div className="entries pb-16 pt-2">
         <Post
           image="./images/funny-cat-01.png"
           likes="45"

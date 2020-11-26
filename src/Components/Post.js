@@ -17,7 +17,7 @@ export default function Post({ image, caption = "", date, likes, children }) {
   const textRef = useRef(null);
 
   return (
-    <div className="post mb-8 bg-yellow p-4 shadow">
+    <div className="post bg-transparent px-4 py-6">
       {children}
       <img alt="post__image" className="entry__image" src={image} />
       <div className="font-medium text-sm text-black mt-4">{likes} likes</div>
