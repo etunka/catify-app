@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 
-export default function CommentForm() {
+export default function CommentForm({ textRef }) {
   const [textContent, setTextContent] = useState("");
 
   const buttonClass = classNames(
@@ -17,6 +17,7 @@ export default function CommentForm() {
       className="h-10 px-4 py-2 flex-centered bg-transparent border border-turquoise border-opacity-25 bg-transparent rounded"
     >
       <textarea
+        ref={textRef}
         className="w-4/5 h-10 py-2 focus:outline-none resize-none bg-transparent "
         placeholder="Add a comment..."
         maxLength="300"
