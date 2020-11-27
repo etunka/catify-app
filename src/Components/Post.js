@@ -3,8 +3,16 @@ import { ReactComponent as LikeIcon } from "./paw.svg";
 import { ReactComponent as LikeIconChecked } from "./paw--red.svg";
 import { ReactComponent as CommentIcon } from "./comment.svg";
 import CommentForm from "./CommentForm";
+import Comments from "./Comments";
 
-export default function Post({ image, caption = "", date, likes, children }) {
+export default function Post({
+  image,
+  caption = "",
+  date,
+  likes,
+  comments,
+  children,
+}) {
   // read-more functionality
   const isAboveCharLimit = caption.length > 100;
   const excerpt = caption.substring(0, 100);
@@ -56,6 +64,7 @@ export default function Post({ image, caption = "", date, likes, children }) {
           </span>
         </a>
       )}
+      {!!comments && <Comments commentsList={comments} />}
       <p className="post__date text-xxs font-thin my-4">{date}</p>
       <CommentForm textRef={textRef} />
     </div>

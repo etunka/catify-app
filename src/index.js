@@ -15,6 +15,7 @@ const App = () => (
           image="./images/funny-cat-01.png"
           likes="45"
           date="6 HOURS AGO"
+          comments={["comment1", "comment2", "comment3"]}
           caption="Cat ipsum dolor sit amet, chew the plant. Check cat door for ambush 10 times before coming in sniff other cat's butt and hang jaw half open thereafter."
         >
           <User image="./images/crazy03.png" name="Ricky Ticky Tabby" />
