@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 
-export default function CommentForm({ textRef }) {
+export default function CommentForm({ textRef, postComment }) {
   const [textContent, setTextContent] = useState("");
 
   const buttonClass = classNames(
@@ -22,6 +22,7 @@ export default function CommentForm({ textRef }) {
         placeholder="Add a comment..."
         maxLength="300"
         onChange={(e) => setTextContent(e.target.value)}
+        value={textContent}
       />
       <input
         id="post-comment"
@@ -29,6 +30,11 @@ export default function CommentForm({ textRef }) {
         value="Post"
         className={buttonClass}
         disabled={textContent === "" ? true : false}
+        onClick={(e) => {
+          e.preventDefault();
+          postComment(textContent);
+          setTextContent("");
+        }}
       ></input>
     </form>
   );

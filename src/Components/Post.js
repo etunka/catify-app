@@ -1,25 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ReactComponent as LikeIcon } from "./paw.svg";
 import { ReactComponent as LikeIconChecked } from "./paw--red.svg";
 import { ReactComponent as CommentIcon } from "./comment.svg";
 import CommentForm from "./CommentForm";
 import Comments from "./Comments";
 
-export default function Post({
-  image,
-  caption = "",
-  date,
-  likes,
-  comments,
-  children,
-}) {
-  // read-more functionality
+export default function Post({ image, caption = "", date, likes, children }) {
+  // read more/less
   const isAboveCharLimit = caption.length > 100;
   const excerpt = caption.substring(0, 100);
   const [showExcerpt, setShowExcerpt] = useState(isAboveCharLimit);
 
   // toggle like button
   const [reaction, setReaction] = useState("like");
+
+  // add new comment
+  const [comments, setComments] = useState([
+    "comment1",
+    "comment2",
+    "comment3",
+  ]);
+  const addComment = (newComment) => setComments([...comments, newComment]);
 
   // focus text area when clicked on commentIcon
   const textRef = useRef(null);
@@ -49,7 +50,7 @@ export default function Post({
           )}
         </button>
       </div>
-      <p className="post__caption mt-2 text-sm text-black">
+      <p className="post__caption text-sm text-black">
         {showExcerpt ? excerpt : caption}
       </p>
       {isAboveCharLimit && (
@@ -66,7 +67,7 @@ export default function Post({
       )}
       {!!comments && <Comments commentsList={comments} />}
       <p className="post__date text-xxs font-thin my-4">{date}</p>
-      <CommentForm textRef={textRef} />
+      <CommentForm postComment={addComment} textRef={textRef} />
     </div>
   );
 }
