@@ -1,11 +1,24 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { FC, useState, useRef } from "react";
 import { ReactComponent as LikeIcon } from "./paw.svg";
 import { ReactComponent as LikeIconChecked } from "./paw--red.svg";
 import { ReactComponent as CommentIcon } from "./comment.svg";
-import CommentForm from "./CommentForm";
-import Comments from "./Comments";
+import { CommentForm } from "./CommentForm";
+import { Comments } from "./Comments";
 
-export default function Post({ image, caption = "", date, likes, children }) {
+type Props = {
+  imageUrl: string;
+  caption?: string;
+  date: string;
+  likes?: string;
+};
+
+export const Post: FC<Props> = ({
+  imageUrl,
+  caption = "",
+  date,
+  likes,
+  children,
+}) => {
   // read more/less
   const isAboveCharLimit = caption.length > 100;
   const excerpt = caption.substring(0, 100);
@@ -20,22 +33,25 @@ export default function Post({ image, caption = "", date, likes, children }) {
     "comment2",
     "comment3",
   ]);
-  const addComment = (newComment) => setComments([...comments, newComment]);
+  const addComment = (newComment: string) =>
+    setComments([...comments, newComment]);
 
   // focus text area when clicked on commentIcon
-  const textRef = useRef(null);
+  const textRef = useRef<HTMLTextAreaElement>(null);
 
   return (
     <div className="post bg-transparent px-4 py-6">
       {children}
-      <img alt="post__image" className="entry__image" src={image} />
+      <img alt="post__image" className="entry__image" src={imageUrl} />
       <div className="font-medium text-sm text-black mt-4">{likes} likes</div>
       <div className="flex">
         <button className="focus:outline-none">
           <CommentIcon
             className="icon-small my-4 mr-3 fill-black"
             onClick={() => {
-              textRef.current.focus();
+              if (textRef.current) {
+                textRef.current.focus();
+              }
             }}
           />
         </button>
@@ -70,4 +86,4 @@ export default function Post({ image, caption = "", date, likes, children }) {
       <CommentForm postComment={addComment} textRef={textRef} />
     </div>
   );
-}
+};

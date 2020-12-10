@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import classNames from "classnames";
 
-export default function CommentForm({ textRef, postComment }) {
+type Props = {
+  textRef: React.RefObject<HTMLTextAreaElement>;
+  postComment: (comment: string) => void;
+};
+
+export const CommentForm: FC<Props> = ({ textRef, postComment }) => {
   const [textContent, setTextContent] = useState("");
 
   const buttonClass = classNames(
@@ -20,7 +25,7 @@ export default function CommentForm({ textRef, postComment }) {
         ref={textRef}
         className="w-4/5 h-10 py-2 focus:outline-none resize-none bg-transparent "
         placeholder="Add a comment..."
-        maxLength="300"
+        maxLength={300}
         onChange={(e) => setTextContent(e.target.value)}
         value={textContent}
       />
@@ -38,4 +43,4 @@ export default function CommentForm({ textRef, postComment }) {
       ></input>
     </form>
   );
-}
+};

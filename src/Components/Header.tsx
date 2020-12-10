@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-export default function Header() {
+export const Header: FC = () => {
   return (
     <div className="header flex items-center bg-turquoise px-6 pb-2 shadow sm:justify-center">
       <img className="w-20 sm:w-48" src="./logo-transparent02.png" alt="" />
@@ -10,4 +10,4 @@ export default function Header() {
       </span>
     </div>
   );
-}
+};
