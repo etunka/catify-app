@@ -4,24 +4,16 @@ import { ReactComponent as LikeIconChecked } from "./paw--red.svg";
 import { ReactComponent as CommentIcon } from "./comment.svg";
 import { CommentForm } from "./CommentForm";
 import { Comments } from "./Comments";
+import { PostData } from "../types";
 
 type Props = {
-  imageUrl: string;
-  caption?: string;
-  date: string;
-  likes?: string;
+  post: PostData;
 };
 
-export const Post: FC<Props> = ({
-  imageUrl,
-  caption = "",
-  date,
-  likes,
-  children,
-}) => {
+export const Post: FC<Props> = ({ post, children }) => {
   // read more/less
-  const isAboveCharLimit = caption.length > 100;
-  const excerpt = caption.substring(0, 100);
+  const isAboveCharLimit = post.caption.length > 100;
+  const excerpt = post.caption.substring(0, 100);
   const [showExcerpt, setShowExcerpt] = useState(isAboveCharLimit);
 
   // toggle like button
@@ -42,8 +34,10 @@ export const Post: FC<Props> = ({
   return (
     <div className="post bg-transparent px-4 py-6">
       {children}
-      <img alt="post__image" className="entry__image" src={imageUrl} />
-      <div className="font-medium text-sm text-black mt-4">{likes} likes</div>
+      <img alt="post__image" className="entry__image" src={post.imageUrl} />
+      <div className="font-medium text-sm text-black mt-4">
+        {post.likes} likes
+      </div>
       <div className="flex">
         <button className="focus:outline-none">
           <CommentIcon
@@ -67,7 +61,7 @@ export const Post: FC<Props> = ({
         </button>
       </div>
       <p className="post__caption text-sm text-black">
-        {showExcerpt ? excerpt : caption}
+        {showExcerpt ? excerpt : post.caption}
       </p>
       {isAboveCharLimit && (
         <a
@@ -82,7 +76,7 @@ export const Post: FC<Props> = ({
         </a>
       )}
       {!!comments && <Comments commentsList={comments} />}
-      <p className="post__date text-xxs font-thin my-4">{date}</p>
+      <p className="post__date text-xxs font-thin my-4">{post.date}</p>
       <CommentForm postComment={addComment} textRef={textRef} />
     </div>
   );
