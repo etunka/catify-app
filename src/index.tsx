@@ -8,6 +8,7 @@ import { User } from "./components/User";
 import { PostData } from "./types";
 import { postsDataUrl } from "./constants";
 import { fetchData } from "./helper";
+import "./firebase";
 
 const App = () => {
   // posts response data
