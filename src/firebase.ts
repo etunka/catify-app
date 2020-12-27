@@ -33,7 +33,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var provider = new firebase.auth.GoogleAuthProvider();
 
 export function handleAuthentication() {
-  firebase
+  return firebase
     .auth()
     .signInWithPopup(provider)
     .then(function (result) {
@@ -45,7 +45,7 @@ export function handleAuthentication() {
       // The signed-in user info.
       var user = result.user;
       console.log(user);
-      // ...
+      return user;
     })
     .catch(function (error) {
       // Handle Errors here.

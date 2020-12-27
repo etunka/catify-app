@@ -26,7 +26,7 @@ const App = () => {
       <Header />
       <div className="main max-w-lg mx-auto pb-8 bg-yellow">
         {!!posts && (
-          <div className="posts pb-16 pt-2">
+          <div className="posts pb-16">
             {posts.map((post) => (
               <Post post={post} key={post.id}>
                 <User user={post.user} />

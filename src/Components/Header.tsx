@@ -11,9 +11,9 @@ export const Header: FC = () => {
         <span className="text-5xl sm:text-6xl text-white font-logo">
           Catify
         </span>
-        <span className="font-default text-yellow mt-4 ml-4 text-sm sm:text-base">
+        {/* <span className="font-default text-yellow mt-4 ml-4 text-sm sm:text-base">
           freely share cat pics!
-        </span>
+        </span> */}
       </div>
 
       <UserMenu />
