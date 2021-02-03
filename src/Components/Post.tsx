@@ -65,6 +65,7 @@ export const Post: FC<Props> = ({ post, children }) => {
       </p>
       {isAboveCharLimit && (
         <a
+          href="!#"
           className="post__more"
           onClick={() => {
             setShowExcerpt(!showExcerpt);

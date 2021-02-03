@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "imageUrl": "./images/funny-cat-01.png",
+      "likes": 45,
+      "date": "6 HOURS AGO",
+      "caption": "Cat ipsum dolor sit amet, chew the plant. Check cat door for ambush 10 times before coming in sniff other cat's butt and hang jaw half open thereafter.",
+      "user": {
+        "imageUrl": "./images/crazy03.png",
+        "name": "Ricky Ticky Tabby"
+      },
+      "comments": ["Great pic!", "What a sweet kitty!", "Cute!"]
+    },
+    {
+      "imageUrl": "./images/funny-cat-02.png",
+      "likes": 128,
+      "date": "8 HOURS AGO",
+      "caption": "Steal raw zucchini off kitchen.",
+      "user": {
+        "imageUrl": "./images/crazy02.png",
+        "name": "Cindy Clawford"
+      },
+      "comments": ["Love this kitty!", "LOL!", "Beautiful picture", "Cutie pie"]
+    },
+    {
+      "imageUrl": "./images/funny-cat-03.png",
+      "likes": 256,
+      "date": "1 HOUR AGO",
+      "caption": "",
+      "user": {
+        "imageUrl": "./images/crazy01.png",
+        "name": "I_Love_My_Kitty"
+      },
+      "comments": ["Cute cat", "Funny pic!", "Great pic!", "What a cute kitty"]
+    }
+  ]
+}

@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData(postsDataUrl).then((data) => {
-      setPosts(data.posts);
+      setPosts(data);
       console.log(data);
     });
   }, []);
