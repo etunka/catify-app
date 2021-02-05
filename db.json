@@ -10,7 +10,20 @@
         "imageUrl": "./images/crazy03.png",
         "name": "Ricky Ticky Tabby"
       },
-      "comments": ["Great pic!", "What a sweet kitty!", "Cute!"]
+      "comments": [
+        {
+          "userName": "KittyLover",
+          "comment": "What a sweet kitty!"
+        },
+        {
+          "userName": "HelloKitty",
+          "comment": "Great pic!"
+        },
+        {
+          "userName": "ChubbyTabby",
+          "comment": "Love this photo"
+        }
+      ]
     },
     {
       "imageUrl": "./images/funny-cat-02.png",
@@ -21,7 +34,20 @@
         "imageUrl": "./images/crazy02.png",
         "name": "Cindy Clawford"
       },
-      "comments": ["Love this kitty!", "LOL!", "Beautiful picture", "Cutie pie"]
+      "comments": [
+        {
+          "userName": "KittyLover",
+          "comment": "What a sweet kitty!"
+        },
+        {
+          "userName": "HelloKitty",
+          "comment": "Great pic!"
+        },
+        {
+          "userName": "ChubbyTabby",
+          "comment": "Love this photo"
+        }
+      ]
     },
     {
       "imageUrl": "./images/funny-cat-03.png",
@@ -32,7 +58,20 @@
         "imageUrl": "./images/crazy01.png",
         "name": "I_Love_My_Kitty"
       },
-      "comments": ["Cute cat", "Funny pic!", "Great pic!", "What a cute kitty"]
+      "comments": [
+        {
+          "userName": "KittyLover",
+          "comment": "What a sweet kitty!"
+        },
+        {
+          "userName": "HelloKitty",
+          "comment": "Great pic!"
+        },
+        {
+          "userName": "ChubbyTabby",
+          "comment": "Love this photo"
+        }
+      ]
     }
   ]
 }

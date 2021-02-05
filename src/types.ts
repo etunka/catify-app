@@ -1,3 +1,5 @@
+export type Comment = { userName: string; comment: string };
+
 export type PostData = {
   id: number;
   imageUrl: string;
@@ -5,6 +7,7 @@ export type PostData = {
   date: string;
   caption: string;
   user: UserData;
+  comments: Comment[];
 };
 
 export type UserData = {
@@ -15,4 +18,9 @@ export type UserData = {
 
 export interface PostsResponseData {
   posts: PostData[];
+}
+
+export interface State {
+  posts: PostData[];
+  page: number;
 }

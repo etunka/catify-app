@@ -20,13 +20,11 @@ export const Post: FC<Props> = ({ post, children }) => {
   const [reaction, setReaction] = useState("like");
 
   // add new comment
-  const [comments, setComments] = useState([
-    "comment1",
-    "comment2",
-    "comment3",
-  ]);
-  const addComment = (newComment: string) =>
-    setComments([...comments, newComment]);
+  const [comments, setComments] = useState(post.comments);
+  const addComment = (newComment: string) => {
+    const newCommentObj = { userName: "new user", comment: newComment };
+    setComments([...comments, newCommentObj]);
+  };
 
   // focus text area when clicked on commentIcon
   const textRef = useRef<HTMLTextAreaElement>(null);
@@ -60,9 +58,13 @@ export const Post: FC<Props> = ({ post, children }) => {
           )}
         </button>
       </div>
-      <p className="post__caption text-sm text-black">
-        {showExcerpt ? excerpt : post.caption}
-      </p>
+      <div className="post__caption">
+        <span className="text-sm font-semibold mr-2">{post.user.name}</span>
+        <span className="text-sm text-black">
+          {showExcerpt ? excerpt : post.caption}
+        </span>
+      </div>
+
       {isAboveCharLimit && (
         <a
           href="!#"

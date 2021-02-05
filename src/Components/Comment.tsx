@@ -1,18 +1,23 @@
 import React, { FC } from "react";
 
-// later make all these mandatory
-type Props = { content: string; userName?: string; date?: string };
+type Props = { comment: string; userName?: string };
 
-export const Comment: FC<Props> = ({ content, userName, date }) => {
+export const Comment: FC<Props> = ({ comment, userName }) => {
   return (
     <li data-testid="comment-list-element" className="post__comment">
       <div>
         {!!userName && (
-          <span data-testid="comment-list-element-username">{userName}</span>
+          <span
+            className="font-semibold text-sm mr-2"
+            data-testid="comment-list-element-username"
+          >
+            {userName}
+          </span>
         )}
-        <span data-testid="comment-list-element-content">{content}</span>
+        <span className="text-sm" data-testid="comment-list-element-content">
+          {comment}
+        </span>
       </div>
-      <p data-testid="comment-list-element-date">{date}</p>
     </li>
   );
 };
